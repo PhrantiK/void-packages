@@ -1,7 +1,7 @@
 # Template file for 'neovim'
 pkgname=neovim
-version=0.5.1
-revision=2
+version=0.6.0dev563gb74916cfd
+revision=1
 build_style=cmake
 build_helper="qemu"
 configure_args="-DCMAKE_BUILD_TYPE=Release"
@@ -13,8 +13,10 @@ short_desc="Fork of Vim aiming to improve user experience, plugins and GUIs"
 maintainer="Steve Prybylski <sa.prybylx@gmail.com>"
 license="Apache-2.0, custom:Vim"
 homepage="https://neovim.io"
-distfiles="https://github.com/neovim/neovim/archive/v${version}.tar.gz"
-checksum=aa449795e5cc69bdd2eeed7095f20b9c086c6ecfcde0ab62ab97a9d04243ec84
+distfiles="https://github.com/neovim/neovim/archive/refs/tags/nightly.tar.gz"
+checksum=16944648cf32b28215570a61f7d68984d3ac9e6931d47639e915b62001dac07a
+create_wrksrc=yes
+wrksrc=neovim-nightly
 
 alternatives="
  vi:vi:/usr/bin/nvim
@@ -29,6 +31,11 @@ pre_configure() {
 		-e "s|\".*/bin/nvim|\${CMAKE_CROSSCOMPILING_EMULATOR} &|g"
 }
 
+do_build() {
+  make USE_BUNDLED=0 CMAKE_BUILD_TYPE=RelWithDebInfo
+}
+
 post_install() {
 	vlicense LICENSE
 }
+
