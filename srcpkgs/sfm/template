@@ -1,0 +1,24 @@
+# Template file for 'sfm'
+pkgname=sfm
+version=0.4
+revision=1
+#archs="i686 x86_64"
+#wrksrc=
+#create_wrksrc=yes
+build_style=gnu-makefile
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+nocross=yes
+make_use_env=compliant
+hostmakedepends=""
+makedepends=""
+depends=""
+short_desc="Simple file manager"
+maintainer="PhrantiK <45719263+PhrantiK@users.noreply.github.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/afify/sfm"
+distfiles="https://github.com/afify/sfm/archive/v${version}.tar.gz"
+checksum=c0fe7f36a4050256b68c6e6c5cb3b7065527c6a8f6a1b0ca020814a7d511c652
